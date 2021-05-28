@@ -53,6 +53,6 @@ public class JobAdvertiseManager implements JobAdvertiseService {
         JobAdvertise tmpJobAdvertise = this.jobAdvertiseDao.findById(id).orElse(null);
         tmpJobAdvertise.setActive(active);
         this.jobAdvertiseDao.save(tmpJobAdvertise);
-        return new SuccessDataResult(tmpJobAdvertise,"Güncellendi");
+        return new SuccessDataResult<JobAdvertise>(tmpJobAdvertise,"Güncellendi");
     }
 }
