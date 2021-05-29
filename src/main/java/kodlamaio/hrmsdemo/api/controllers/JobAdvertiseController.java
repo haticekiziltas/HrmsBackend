@@ -42,6 +42,10 @@ public class JobAdvertiseController {
     public DataResult<List<JobAdvertise>> getAllByEmployer(@RequestParam int employerId) {
         return this.jobAdvertiseService.getAllByEmployer(employerId);
     }
+    @GetMapping("/getallbydateDesc")
+    public DataResult<List<JobAdvertise>> getAllByDateDesc() {
+        return this.jobAdvertiseService.getAllByDateDesc();
+    }
 
     @PutMapping("/updateActive")
     public DataResult<JobAdvertise> updateActive(@RequestParam int id ,@RequestParam boolean active){
