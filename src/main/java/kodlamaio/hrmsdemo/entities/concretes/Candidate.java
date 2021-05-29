@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Date;
 
@@ -36,7 +37,7 @@ public class Candidate extends User {
     @Column(name = "identification_number")
     private String identificationNumber;
 
-    @NotBlank(message = "Doğum tarihi boş bırakılmaz")
+    @NotNull(message = "Doğum tarihi boş bırakılmaz")
     @Column(name = "birth_date")
     private Date birthDate;
 }

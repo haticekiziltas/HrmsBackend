@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -19,28 +21,31 @@ public class JobAdvertise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
+    @Column(name = "id")
     private int id;
 
     @Column(name = "job_description")
+    @Type(type = "text")
     private String jobDescription;
 
-    @Column(name ="min_salary")
+    @Column(name = "min_salary")
     private int minSalary;
 
-    @Column(name ="max_salary")
+    @Column(name = "max_salary")
     private int maxSalary;
 
     @Column(name = "number_of_open_position")
     private int numberOfOpenPosition;
 
-    @Column(name ="created_at")
-    private Date createdAt;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at")
+    private java.util.Date createdAt;
 
-    @Column(name ="is_active")
+    @Column(name = "is_active")
     private boolean active;
 
-    @Column(name ="application_deadline")
+    @Column(name = "application_deadline")
     private Date applicationDeadLine;
 
 
@@ -52,12 +57,9 @@ public class JobAdvertise {
     @JoinColumn(name = "job_title_id")
     private Job job;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
-
-
-
 
 
 }

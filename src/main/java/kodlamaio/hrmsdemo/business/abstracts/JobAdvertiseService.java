@@ -9,15 +9,16 @@ import java.sql.Date;
 import java.util.List;
 
 public interface JobAdvertiseService {
-    Result add(JobAdvertise jobAdvertise);
 
+    Result add(JobAdvertise jobAdvertise);
     Result update(JobAdvertise jobAdvertise);
 
+
     DataResult<List<JobAdvertise>> getAll();
-
     DataResult<List<JobAdvertise>> getAllByApplicationDeadline(Date date);
-
     DataResult<List<JobAdvertise>> getAllByEmployer(int employerId);
+    DataResult<List<JobAdvertise>> getAllByDateDesc();
     DataResult<JobAdvertise> updateActive(int id,boolean active);
+
 }
 

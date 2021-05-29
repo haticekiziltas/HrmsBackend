@@ -24,13 +24,15 @@ public class JobAdvertiseManager implements JobAdvertiseService {
     }
     @Override
     public Result add(JobAdvertise jobAdvertise) {
-        return new SuccessDataResult<JobAdvertise>(this.jobAdvertiseDao.save(jobAdvertise),"Eklendi");
+        return new SuccessDataResult<JobAdvertise>(this.jobAdvertiseDao.save(jobAdvertise)," ilan oluşturuldu");
     }
 
     @Override
     public Result update(JobAdvertise jobAdvertise) {
-        return new SuccessDataResult<>(this.jobAdvertiseDao.findAll());
+        return new SuccessDataResult<>(this.jobAdvertiseDao.findAll(), "güncellendi");
     }
+
+
 
     @Override
     public DataResult<List<JobAdvertise>> getAll() {
@@ -40,12 +42,17 @@ public class JobAdvertiseManager implements JobAdvertiseService {
 
     @Override
     public DataResult<List<JobAdvertise>> getAllByApplicationDeadline(Date date) {
-        return new SuccessDataResult<>(this.jobAdvertiseDao.getAllByApplicationDeadLine(date));
+        return new SuccessDataResult<>(this.jobAdvertiseDao.getAllByApplicationDeadLine(date), "son başvuru tarihine göre listelendi");
     }
 
     @Override
     public DataResult<List<JobAdvertise>> getAllByEmployer(int employerId) {
         return new SuccessDataResult<>(this.jobAdvertiseDao.findAllByEmployerIdAndActiveTrue(employerId));
+    }
+
+    @Override
+    public DataResult<List<JobAdvertise>> getAllByDateDesc() {
+        return new SuccessDataResult<>(this.jobAdvertiseDao.findAllByActiveTrueOrderByApplicationDeadLineDesc());
     }
 
     @Override
@@ -55,4 +62,7 @@ public class JobAdvertiseManager implements JobAdvertiseService {
         this.jobAdvertiseDao.save(tmpJobAdvertise);
         return new SuccessDataResult<JobAdvertise>(tmpJobAdvertise,"Güncellendi");
     }
+
+
+
 }

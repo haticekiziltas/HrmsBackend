@@ -30,6 +30,7 @@ public class Employer extends User {
     @NotBlank(message="Web sitesi Alanı Boş Olamaz")
     @Column(name = "web_address")
     private String webAddress;
+
     @JsonIgnore
     @OneToMany(mappedBy = "employer")
     private List<JobAdvertise> jobAdvertises;

@@ -23,6 +23,7 @@ public class City {
 
     @Column(name = "city_name")
     private String name;
+
     @JsonIgnore
     @OneToMany(mappedBy = "city")
     private List<JobAdvertise> jobAdvertises;
