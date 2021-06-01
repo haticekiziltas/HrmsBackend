@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobAdvertiseDetailsDto {
+public class JobAdvertismentDetailsDto {
 
     private int id;
     private String companyName;

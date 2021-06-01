@@ -37,7 +37,7 @@ public class ValidationManager implements ValidationService {
 
 
     @Override
-    public Result mailIdentityExist(Candidate candidate) throws Exception {
+    public Result mailIdentityExist(Candidate candidate) {
         if (this.userDao.existsByEmailAdress(candidate.getEmailAdress())) {
             return new ErrorResult("Email Adresi Kayıtlı");
         } else if (this.candidateDao.existsByIdentificationNumber(candidate.getIdentificationNumber())) {
@@ -48,10 +48,9 @@ public class ValidationManager implements ValidationService {
         return new SuccessResult();
     }
 
-
     @Override
     public Result mailExistEmployer(Employer employer) {
-        if (!this.employerDao.existsEmployerByEmailAdress(employer.getEmailAdress())) {
+        if (!this.userDao.existsByEmailAdress(employer.getEmailAdress())) {
             return new SuccessResult();
 
         } else {
@@ -70,7 +69,7 @@ public class ValidationManager implements ValidationService {
     }
 
     @Override
-    public Result mernisCandidate(Candidate candidate) throws Exception {
+    public Result mernisCandidate(Candidate candidate) {
         if (identityCheckService.validate(candidate)) {
             return new SuccessResult();
         } else {
@@ -78,7 +77,6 @@ public class ValidationManager implements ValidationService {
             return new ErrorResult("Tc kimlik doğrulaması başarısız");
         }
     }
-
 
     @Override
     public Result requiredEmployer(Employer employer) {
@@ -98,7 +96,7 @@ public class ValidationManager implements ValidationService {
 
         } else {
             return new SuccessResult();
-        }
     }
+}
 
 }

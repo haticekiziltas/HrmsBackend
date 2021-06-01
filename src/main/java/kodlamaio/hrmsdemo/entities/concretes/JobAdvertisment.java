@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Table(name = "job_advertisements")
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobAdvertise {
+public class JobAdvertisment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +36,7 @@ public class JobAdvertise {
 
     @Column(name = "max_salary")
     private int maxSalary;
+
 
     @Column(name = "number_of_open_position")
     private int numberOfOpenPosition;
@@ -56,7 +57,7 @@ public class JobAdvertise {
     private Employer employer;
 
     @ManyToOne
-    @JoinColumn(name = "job_title_id")
+    @JoinColumn(name = "job_position_id")
     private Job job;
 
     @ManyToOne
