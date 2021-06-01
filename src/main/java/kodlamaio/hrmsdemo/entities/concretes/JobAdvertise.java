@@ -8,8 +8,11 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
@@ -37,16 +40,15 @@ public class JobAdvertise {
     @Column(name = "number_of_open_position")
     private int numberOfOpenPosition;
 
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
+
     @Column(name = "created_at")
-    private java.util.Date createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "is_active")
     private boolean active;
 
     @Column(name = "application_deadline")
-    private Date applicationDeadLine;
+    private LocalDate applicationDeadLine;
 
 
     @ManyToOne

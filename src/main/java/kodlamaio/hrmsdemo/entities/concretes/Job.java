@@ -28,7 +28,7 @@ public class Job {
 	@NotBlank(message="İsim Alanı Boş olamaz")
 	private String jobName;
 
-	@JsonIgnore
+
 	@OneToMany(mappedBy = "job")
 	private List<JobAdvertise> jobAdvertises;
 	

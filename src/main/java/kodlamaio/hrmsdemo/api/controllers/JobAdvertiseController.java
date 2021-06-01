@@ -4,6 +4,7 @@ import kodlamaio.hrmsdemo.business.abstracts.JobAdvertiseService;
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.JobAdvertise;
+import kodlamaio.hrmsdemo.entities.dtos.JobAdvertiseDetailsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,17 +20,22 @@ public class JobAdvertiseController {
 
     @Autowired
     public JobAdvertiseController(JobAdvertiseService jobAdvertiseService) {
+        super();
         this.jobAdvertiseService = jobAdvertiseService;
     }
 
+   @GetMapping("/getall")
+   public DataResult<List<JobAdvertise>>  getAll() {
+        return this.jobAdvertiseService.getAll();
+   }
     @PostMapping("/add")
     public Result add(@RequestBody JobAdvertise jobAdvertise) {
         return this.jobAdvertiseService.add(jobAdvertise);
     }
 
-    @GetMapping("/getall")
-    public DataResult<List<JobAdvertise>> getAll() {
-        return this.jobAdvertiseService.getAll();
+    @GetMapping("/getJobAdvertiseWithEmployerDetails")
+    public DataResult<List<JobAdvertiseDetailsDto>> getJobAdvertiseWithEmployerDetails() {
+        return this.jobAdvertiseService.getJobAdvertiseWithEmployerDetails();
     }
 
     @GetMapping("/getallbyapplicationdeadline")

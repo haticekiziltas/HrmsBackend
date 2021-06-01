@@ -22,7 +22,7 @@ public class City {
     private int id;
 
     @Column(name = "city_name")
-    private String name;
+    private String cityName;
 
     @JsonIgnore
     @OneToMany(mappedBy = "city")

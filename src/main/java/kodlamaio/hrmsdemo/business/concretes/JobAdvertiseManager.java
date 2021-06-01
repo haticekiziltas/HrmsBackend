@@ -4,8 +4,10 @@ import kodlamaio.hrmsdemo.business.abstracts.JobAdvertiseService;
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessDataResult;
+import kodlamaio.hrmsdemo.dataAccess.abstracts.EmployerDao;
 import kodlamaio.hrmsdemo.dataAccess.abstracts.JobAdvertiseDao;
 import kodlamaio.hrmsdemo.entities.concretes.JobAdvertise;
+import kodlamaio.hrmsdemo.entities.dtos.JobAdvertiseDetailsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +19,14 @@ import java.util.List;
 public class JobAdvertiseManager implements JobAdvertiseService {
     private JobAdvertiseDao jobAdvertiseDao;
 
+
+
     @Autowired
     public JobAdvertiseManager(JobAdvertiseDao jobAdvertiseDao) {
         super();
         this.jobAdvertiseDao = jobAdvertiseDao;
+
+
     }
     @Override
     public Result add(JobAdvertise jobAdvertise) {
@@ -32,11 +38,15 @@ public class JobAdvertiseManager implements JobAdvertiseService {
         return new SuccessDataResult<>(this.jobAdvertiseDao.findAll(), "güncellendi");
     }
 
+    @Override
+    public DataResult<List<JobAdvertise>> getAll() {
+        return new SuccessDataResult<List<JobAdvertise>>(jobAdvertiseDao.findAll(),"data listelendi");
+    }
 
 
     @Override
-    public DataResult<List<JobAdvertise>> getAll() {
-        return new SuccessDataResult<List<JobAdvertise>>(this.jobAdvertiseDao.findAll());
+    public DataResult<List<JobAdvertiseDetailsDto>> getJobAdvertiseWithEmployerDetails() {
+        return new SuccessDataResult<List<JobAdvertiseDetailsDto>>(this.jobAdvertiseDao.getJobAdvertiseWithEmployerDetails());
     }
 
 
