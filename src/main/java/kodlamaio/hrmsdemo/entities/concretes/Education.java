@@ -47,4 +47,10 @@ public class Education {
 
     @Column(name = "created_date")
     private LocalDate createdDate;
+
+    /*    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_date")
+    private java.util.Date createdDate;
+    Database'de timestamp with time zone
+    */
 }

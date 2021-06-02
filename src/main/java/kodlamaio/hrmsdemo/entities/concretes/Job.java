@@ -24,7 +24,7 @@ public class Job {
 	private int id;
 	
 	@Column (name ="position")
-	@NotBlank(message="İsim Alanı Boş olamaz")
+	@NotBlank(message="Başlık Alanı Boş olamaz")
 	private String jobName;
 
 

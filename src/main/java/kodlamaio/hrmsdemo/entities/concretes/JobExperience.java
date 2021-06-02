@@ -24,7 +24,7 @@ public class JobExperience {
     private Cv cv;
 
     @Column(name = "workplace_name")
-    @NotBlank(message = "boş geçilmez")
+    @NotBlank(message = "İş yeri adı boş geçilmez")
     private String workplaceName;
 
 
