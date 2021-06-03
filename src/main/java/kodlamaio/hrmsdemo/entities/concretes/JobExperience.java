@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -40,6 +42,7 @@ public class JobExperience {
     @Column(name = "ended_date")
     private LocalDate endedDate;
 
-    @Column(name = "created_date")
-    private LocalDate createdDate;
+    @NotNull
+    @Column(name = "created_date",columnDefinition = "Date default CURRENT_DATE")
+    private final LocalDateTime createdDate =LocalDateTime.now();
 }

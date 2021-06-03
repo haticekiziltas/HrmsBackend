@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -45,12 +46,8 @@ public class Education {
     @Column(name = "ended_date")
     private LocalDate endedDate;
 
-    @Column(name = "created_date")
-    private LocalDate createdDate;
+    @Column(name = "created_date", columnDefinition = "Date default CURRENT_DATE")
+    private final LocalDateTime createdDate = LocalDateTime.now();
 
-    /*    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_date")
-    private java.util.Date createdDate;
-    Database'de timestamp with time zone
-    */
+
 }

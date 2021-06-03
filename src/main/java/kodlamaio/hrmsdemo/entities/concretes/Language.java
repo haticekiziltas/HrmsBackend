@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Data
@@ -27,5 +29,6 @@ public class Language {
     private String languageName;
 
     @Column(name = "language_level")
-    private char languageLevel;
+    @Min(1) @Max(5)
+    private int languageLevel;
 }

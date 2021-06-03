@@ -40,8 +40,8 @@ public class JobAdvertisment {
     private int numberOfOpenPosition;
 
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Column(name = "created_at",columnDefinition = "Date default CURRENT_DATE")
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "is_active")
     private boolean active;

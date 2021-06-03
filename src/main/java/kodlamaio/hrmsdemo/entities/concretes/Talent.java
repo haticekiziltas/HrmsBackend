@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -29,5 +30,5 @@ public class Talent {
     private String talentTitle;
 
     @Column(name = "created_date")
-    private LocalDate createdDate;
+    private final LocalDateTime createdDate =LocalDateTime.now();
 }
