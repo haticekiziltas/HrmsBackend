@@ -7,12 +7,13 @@ import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.Cv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ap/cvs")
+@RequestMapping("/api/cvs")
 public class CvsController {
     private CvService cvService;
 
@@ -33,6 +34,13 @@ public class CvsController {
     public Result add(@Valid @RequestBody Cv cv) {
 
         return this.cvService.add(cv);
+
+    }
+
+
+    @PutMapping("/uploadImage")
+    public Result saveImage(@RequestBody MultipartFile file, @RequestParam int resumeId) {
+        return this.cvService.saveImage(file, resumeId);
 
     }
 }
