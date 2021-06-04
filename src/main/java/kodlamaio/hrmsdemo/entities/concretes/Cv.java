@@ -24,7 +24,7 @@ public class Cv {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne(targetEntity = Candidate.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Candidate.class)
     @JoinColumn(name = "candidate_id", referencedColumnName = "id", nullable = false)
     private Candidate candidate;
 

@@ -3,10 +3,12 @@ package kodlamaio.hrmsdemo.core.utilities.dtoConverter.concretes;
 import kodlamaio.hrmsdemo.core.utilities.dtoConverter.abstracts.DtoConverterService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class DtoConverterManager implements DtoConverterService {
     private ModelMapper modelMapper;
 

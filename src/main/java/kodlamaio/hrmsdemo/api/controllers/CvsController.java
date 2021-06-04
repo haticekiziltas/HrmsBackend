@@ -5,6 +5,7 @@ import kodlamaio.hrmsdemo.business.abstracts.CvService;
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.Cv;
+import kodlamaio.hrmsdemo.entities.dtos.CvDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/cvs")
 public class CvsController {
+
     private CvService cvService;
 
     @Autowired
@@ -24,8 +26,14 @@ public class CvsController {
 
     @GetMapping("/getall")
     @ApiOperation("Get All Graduate")
-    DataResult<List<Cv>> getAll() {
+    DataResult<List<CvDto>> getAll() {
         return this.cvService.getAll();
+
+    }
+    @GetMapping("/getallCandidateId")
+    @ApiOperation("Get All Cv")
+    DataResult<List<Cv>> getAll(@RequestParam int id) {
+        return this.cvService.getAllCandidateId(id);
 
     }
 
@@ -34,13 +42,11 @@ public class CvsController {
     public Result add(@Valid @RequestBody Cv cv) {
 
         return this.cvService.add(cv);
-
     }
 
-
     @PutMapping("/uploadImage")
-    public Result saveImage(@RequestBody MultipartFile file, @RequestParam int resumeId) {
-        return this.cvService.saveImage(file, resumeId);
+    public Result saveImage(@RequestBody MultipartFile file, @RequestParam int cvId) {
+        return this.cvService.saveImage(file, cvId);
 
     }
 }

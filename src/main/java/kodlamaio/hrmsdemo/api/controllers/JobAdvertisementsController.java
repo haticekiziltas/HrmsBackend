@@ -69,4 +69,5 @@ public class JobAdvertisementsController {
             return this.jobAdvertisementService.getAdCustomDate(date);
 
         }
+
     }

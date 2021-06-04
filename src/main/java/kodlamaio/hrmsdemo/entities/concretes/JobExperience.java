@@ -1,5 +1,6 @@
 package kodlamaio.hrmsdemo.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "cv_job_experiances ")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","cv"})
 public class JobExperience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
