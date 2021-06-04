@@ -6,10 +6,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
-
-
 import javax.persistence.*;
-import java.time.LocalDate;
+import javax.validation.constraints.Positive;
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @EqualsAndHashCode(callSuper = false)
@@ -18,7 +17,7 @@ import java.time.LocalDateTime;
 @Table(name = "job_advertisements")
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobAdvertisment {
+public class JobAdvertisement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,19 +34,19 @@ public class JobAdvertisment {
     @Column(name = "max_salary")
     private int maxSalary;
 
-
+    @Positive
     @Column(name = "number_of_open_position")
     private int numberOfOpenPosition;
 
 
-    @Column(name = "created_at",columnDefinition = "Date default CURRENT_DATE")
+    @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "is_active")
     private boolean active;
 
-    @Column(name = "application_deadline")
-    private LocalDate applicationDeadLine;
+    @Column(name = "end_date")
+    private java.sql.Date endDate;
 
 
     @ManyToOne

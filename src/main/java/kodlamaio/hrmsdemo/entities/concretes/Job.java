@@ -3,6 +3,7 @@ package kodlamaio.hrmsdemo.entities.concretes;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,9 +28,9 @@ public class Job {
 	@NotBlank(message="Başlık Alanı Boş olamaz")
 	private String jobName;
 
-
+    @JsonIgnore
 	@OneToMany(mappedBy = "job")
-	private List<JobAdvertisment> jobAdvertisments;
+	private List<JobAdvertisement> jobAdvertisements;
 	
 	 
 }

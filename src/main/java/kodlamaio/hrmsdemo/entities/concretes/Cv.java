@@ -1,12 +1,12 @@
 package kodlamaio.hrmsdemo.entities.concretes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,6 +17,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Entity
 @Table(name = "candidates_cv ")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","cv"})
 public class Cv {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,19 +47,19 @@ public class Cv {
     @Column(name = "photo")
     private String photo;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "cv")
     private List<Talent> talents;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "cv")
     private List<Education> educations;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "cv")
     private List<JobExperience> jobExperiences;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "cv")
     private List<Language> languages;
 

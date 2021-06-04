@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PositiveOrZero;
 import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobAdvertismentRequestDto {
+public class JobAdvertisementRequestDto {
     @NotNull
     private int cityId;
 
@@ -30,11 +31,11 @@ public class JobAdvertismentRequestDto {
     private Date endDate;
 
     @NotNull
-    @Min(1)
+   @PositiveOrZero
     private int max_salary;
 
     @NotNull
-    @Min(1)
+    @PositiveOrZero
     private int min_salary;
 
 

@@ -1,12 +1,11 @@
 package kodlamaio.hrmsdemo.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -14,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "cv_talents ")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","cv"})
 public class Talent {
 
     @Id
