@@ -36,8 +36,8 @@ public class JobExperienceManager implements JobExperienceService {
     }
 
     @Override
-    public DataResult<List<JobExperienceDto>> findAllByCvIdOrderByEndedDate(int id) {
-        List<JobExperience> jobExperiences = jobExperienceDao.findAllByCvIdOrderByEndedDateDesc(id);
+    public DataResult<List<JobExperienceDto>> findAllByCvIdOrderByEndedDate(int cvId) {
+        List<JobExperience> jobExperiences = jobExperienceDao.findAllByCvIdOrderByEndedDateDesc(cvId);
         return new SuccessDataResult<List<JobExperienceDto>>(dtoConverterService.dtoConverter(jobExperiences, JobExperienceDto.class));
     }
 }

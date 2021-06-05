@@ -32,7 +32,7 @@ public class CvsController {
     }
     @GetMapping("/getallCandidateId")
     @ApiOperation("Get All Cv")
-    DataResult<List<Cv>> getAll(@RequestParam int id) {
+    DataResult<List<Cv>> getAllCandidateId(@RequestParam int id) {
         return this.cvService.getAllCandidateId(id);
 
     }

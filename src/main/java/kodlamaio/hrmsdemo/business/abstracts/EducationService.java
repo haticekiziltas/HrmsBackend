@@ -8,5 +8,5 @@ import java.util.List;
 public interface EducationService {
     DataResult<List<EducationDto>> getAll();
     DataResult<EducationDto> add(EducationDto education);
-    DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDateDesc(int id);
+    DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDateDesc(int cvId);
 }

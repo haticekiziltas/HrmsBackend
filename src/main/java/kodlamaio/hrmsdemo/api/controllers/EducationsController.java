@@ -38,9 +38,9 @@ public class EducationsController {
 
     @GetMapping("/getCvEducations")
     @ApiOperation("Get All Education")
-    public DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDate(int id) {
+    public DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDate(int cvId) {
 
-        return this.educationService.findAllByCvIdOrderByEndedDateDesc(id);
+        return this.educationService.findAllByCvIdOrderByEndedDateDesc(cvId);
     }
 
 }

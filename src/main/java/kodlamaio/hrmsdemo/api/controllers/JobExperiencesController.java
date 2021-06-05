@@ -40,9 +40,9 @@ public class JobExperiencesController {
     }
     @GetMapping("/getCvJobExperiences")
     @ApiOperation("Get All Education")
-    public DataResult<List<JobExperienceDto>> findAllByCvIdOrderByEndedDate(int id) {
+    public DataResult<List<JobExperienceDto>> findAllByCvIdOrderByEndedDate(int cvId) {
 
-        return this.jobExperienceService.findAllByCvIdOrderByEndedDate(id);
+        return this.jobExperienceService.findAllByCvIdOrderByEndedDate(cvId);
     }
 
 }
