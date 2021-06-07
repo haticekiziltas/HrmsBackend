@@ -24,8 +24,8 @@ public class CvDto {
     private String photo;
     private LocalDateTime createdDate;
     private Date updatedDate;
-    private List<Language> languagesId;
-    private List<Talent> talentsId;
-    private List<Education> educationsId;
-    private List<JobExperience> jobExperiencesId;
+    private List<Language> languages;
+    private List<Talent> talents;
+    private List<Education> educations;
+    private List<JobExperience> jobExperiences;
 }

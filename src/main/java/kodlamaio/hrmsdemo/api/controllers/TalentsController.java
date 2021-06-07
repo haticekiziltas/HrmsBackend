@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/talents")
 @Api("Talent api Documentation")
+@CrossOrigin
 public class TalentsController {
 
     private TalentService talentService;

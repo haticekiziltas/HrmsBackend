@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/candidates")
 @Api("Candidate Methods")
+@CrossOrigin
 public class CandidatesController {
 
 

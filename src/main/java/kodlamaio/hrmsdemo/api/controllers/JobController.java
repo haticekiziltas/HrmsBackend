@@ -15,6 +15,7 @@ import kodlamaio.hrmsdemo.entities.concretes.Job;
 @RestController
 @RequestMapping("/api")
 @Api(value = "Job Api documentation")
+@CrossOrigin
 public class JobController {
     private JobService jobService;
 
