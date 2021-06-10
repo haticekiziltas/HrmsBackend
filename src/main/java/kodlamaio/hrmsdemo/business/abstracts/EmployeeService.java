@@ -9,4 +9,5 @@ import java.util.List;
 public interface EmployeeService {
     DataResult<List<Employee>> getAll();
     Result add(Employee employee);
+    Result verifyEmployer(int employeeId,boolean verify);
 }

@@ -15,6 +15,6 @@ public class EmployerPhone {
 
     @ManyToOne()
     @JoinColumn(name = "employer_id")
-    private Employer employer;
+    private Employer employerPhone;
     private String phoneNumber;
 }

@@ -11,13 +11,14 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
 @Table(name = "employers")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertises"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
 @NoArgsConstructor
 @AllArgsConstructor
 
@@ -27,15 +28,23 @@ public class Employer extends User {
     private String companyName;
 
     @NotBlank(message="Web sitesi Alanı Boş Olamaz")
+    @NotNull(message = "Web Adresi Alanı Boş olamaz")
     @Column(name = "web_address")
     private String webAddress;
+
+    @Column(name = "verify")
+    private boolean verify=false;
 
     @JsonIgnore
     @OneToMany(mappedBy = "employer")
     private List<JobAdvertisement> jobAdvertisements;
 
 
-    @OneToMany(mappedBy = "employer")
-    private List<EmployerPhone> employerPhones;
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+
+
+
 
 }

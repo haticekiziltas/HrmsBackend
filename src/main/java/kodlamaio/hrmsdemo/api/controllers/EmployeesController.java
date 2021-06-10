@@ -39,4 +39,14 @@ public class EmployeesController {
 
 
     }
+
+    @PostMapping("/verifyUser")
+    @ApiOperation(value = "Verify Method")
+    public ResponseEntity<?> verifyUser(@Valid @RequestParam("id")int employerId,@RequestParam("verify")boolean
+            verify) {
+
+        return ResponseEntity.ok(this.employeeService.verifyEmployer(employerId,verify));
+
+
+    }
 }
