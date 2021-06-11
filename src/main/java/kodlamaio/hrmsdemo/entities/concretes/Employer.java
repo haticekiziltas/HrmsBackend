@@ -35,16 +35,17 @@ public class Employer extends User {
     @Column(name = "verify")
     private boolean verify=false;
 
-    @JsonIgnore
+   /* @JsonIgnore
     @OneToMany(mappedBy = "employer")
-    private List<JobAdvertisement> jobAdvertisements;
+    private List<JobAdvertisement> jobAdvertisements;*/
 
 
     @Column(name = "phone_number")
     private String phoneNumber;
 
 
-
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "employer")
+    private List<JobAdvertisement> jobAdvertisements;
 
 }

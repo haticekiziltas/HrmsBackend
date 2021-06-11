@@ -40,4 +40,9 @@ public class JobAdvertisementRequestDto {
 
 
     private boolean active;
+
+    @NotNull
+    private int workingTimeId;
+    @NotNull
+    private int wayOfWorkingId;
 }
