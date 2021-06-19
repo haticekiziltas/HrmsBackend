@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/workingtimes")
+@RequestMapping("api/workingstime")
 @CrossOrigin
-public class WorkingTimesController {
+public class WorkingsTimeController {
     private WorkingTimeService workingTimeService;
     @Autowired
-    public WorkingTimesController(WorkingTimeService workingTimeService) {
+    public WorkingsTimeController(WorkingTimeService workingTimeService) {
         this.workingTimeService = workingTimeService;
     }
 

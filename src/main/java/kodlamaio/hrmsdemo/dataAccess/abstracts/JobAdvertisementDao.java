@@ -11,9 +11,12 @@ import java.util.List;
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement,Integer> {
 
     List<JobAdvertisement> findAllByActiveTrue();
+    List<JobAdvertisement>findAllByActiveFalseOrderByCreatedAtDesc();
     List<JobAdvertisement> findAllByEmployerIdAndActiveTrue(int id);
     List<JobAdvertisement> findAllByActiveTrueOrderByEndDateDesc();
     List<JobAdvertisement> findAllByCreatedAt(Date date);
+
+
 
     //@Query("Select new kodlamaio.hrmsdemo.entities.dtos.JobAdvertisementDto"
           //  + "(j.id,e.companyName,j.jobDescription,t.jobName,j.createdAt,c.cityName,j.applicationDeadLine) "

@@ -19,8 +19,10 @@ public class JobAdvertisementDto {
     private String jobName;
     private LocalDateTime createdAt= LocalDateTime.now();
     private String cityName;
+    private int numberOfOpenPosition;
     private String workingTimeTitle;
     private String wayOfWorkingTitle;
     private Date endDate;
+    private  boolean active;
 
 }

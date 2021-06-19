@@ -20,7 +20,7 @@ public class WayOfWorking {
     private int id;
 
     @Column(name = "typeofwork_title")
-    private  String typeOfWorkingTitle;
+    private  String wayOfWorkingTitle;
 
     @JsonIgnore
     @OneToMany(mappedBy = "wayOfWorking")

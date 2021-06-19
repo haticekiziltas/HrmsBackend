@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 @EqualsAndHashCode(callSuper = false)
@@ -34,7 +33,7 @@ public class JobAdvertisement {
     @Column(name = "max_salary")
     private int maxSalary;
 
-    @Positive
+
     @Column(name = "number_of_open_position")
     private int numberOfOpenPosition;
 

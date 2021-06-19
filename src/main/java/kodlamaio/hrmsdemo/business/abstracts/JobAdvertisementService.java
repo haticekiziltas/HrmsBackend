@@ -15,6 +15,7 @@ public interface JobAdvertisementService {
 
 
     DataResult<List<JobAdvertisementDto>> getActive();
+    DataResult<List<JobAdvertisementDto>>findAllByActiveFalseOrderByCreatedAtDesc();
     DataResult<List<JobAdvertisementDto>> getEmpId(int id);
     DataResult<List<JobAdvertisementDto>> getAdDate();
     DataResult<List<JobAdvertisementDto>> getAdCustomDate(Date date);

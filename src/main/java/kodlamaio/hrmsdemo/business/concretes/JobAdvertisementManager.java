@@ -55,6 +55,12 @@ public class JobAdvertisementManager implements JobAdvertisementService {
     }
 
     @Override
+    public DataResult<List<JobAdvertisementDto>> findAllByActiveFalseOrderByCreatedAtDesc() {
+        List<JobAdvertisement> jobAdvertisements = jobAdvertisementDao.findAllByActiveFalseOrderByCreatedAtDesc();
+        return new SuccessDataResult<List<JobAdvertisementDto>>(jobAdvertisementToDto(jobAdvertisements), "Tüm pasif ilanlar getirildi");
+    }
+
+    @Override
     public DataResult<List<JobAdvertisementDto>> getEmpId(int id) {
         List<JobAdvertisement> jobAdvertisements = jobAdvertisementDao.findAllByEmployerIdAndActiveTrue(id);
         return new SuccessDataResult<List<JobAdvertisementDto>>(jobAdvertisementToDto(jobAdvertisements), "Firmaya ait İş ilanları Listelendi");

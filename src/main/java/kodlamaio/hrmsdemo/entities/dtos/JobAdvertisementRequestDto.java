@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Positive;
 import java.sql.Date;
 @Data
 @AllArgsConstructor
@@ -31,15 +31,19 @@ public class JobAdvertisementRequestDto {
     private Date endDate;
 
     @NotNull
-   @PositiveOrZero
-    private int max_salary;
+   @Positive
+    private int maxSalary;
 
     @NotNull
-    @PositiveOrZero
-    private int min_salary;
+    @Positive
+    private int minSalary;
+
+    @NotNull
+    @Min(1)
+    private int numberOfOpenPosition;
 
 
-    private boolean active;
+    private boolean active= false;
 
     @NotNull
     private int workingTimeId;

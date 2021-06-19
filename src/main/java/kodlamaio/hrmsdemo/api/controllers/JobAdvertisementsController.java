@@ -19,9 +19,9 @@ import java.util.List;
 @RequestMapping("/api/jobAdvertisment")
 @CrossOrigin
 public class JobAdvertisementsController {
-    @Autowired
-    private JobAdvertisementService jobAdvertisementService;
 
+    private JobAdvertisementService jobAdvertisementService;
+      @Autowired
     public JobAdvertisementsController(JobAdvertisementService jobAdvertisementService) {
         this.jobAdvertisementService = jobAdvertisementService;
     }
@@ -39,11 +39,18 @@ public class JobAdvertisementsController {
 
         }
         @GetMapping("/getActive")
-        @ApiOperation(value = "get Actv Method")
+        @ApiOperation(value = "get Active Method")
         DataResult<List<JobAdvertisementDto>> getActive () {
             return this.jobAdvertisementService.getActive();
 
         }
+
+    @GetMapping("/getAllPassive")
+    @ApiOperation(value = "get passive Method")
+    DataResult<List<JobAdvertisementDto>> findAllByActiveFalseOrderByCreatedAtDesc() {
+        return this.jobAdvertisementService.findAllByActiveFalseOrderByCreatedAtDesc();
+
+    }
         @GetMapping("/getActiveandEmp")
         @ApiOperation(value = "get emp Method")
         DataResult<List<JobAdvertisementDto>> getEmpId ( @RequestParam int id){
