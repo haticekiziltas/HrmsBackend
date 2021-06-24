@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
@@ -17,11 +18,11 @@ import kodlamaio.hrmsdemo.entities.concretes.Job;
 @Api(value = "Job Api documentation")
 @CrossOrigin
 public class JobController {
+
     private JobService jobService;
 
-
+    @Autowired
     public JobController(JobService jobService) {
-        super();
         this.jobService = jobService;
     }
 

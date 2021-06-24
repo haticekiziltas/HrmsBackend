@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
-@Table(name = "candidates_cv ")
+@Table(name = "candidate_cvs ")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","cv"})
 public class Cv {
     @Id
