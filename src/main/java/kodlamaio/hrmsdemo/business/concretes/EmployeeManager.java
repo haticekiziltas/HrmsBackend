@@ -49,5 +49,11 @@ public class EmployeeManager implements EmployeeService {
         return new SuccessResult("Kullanıcı Pasif Edildi"+emp.getCompanyName());
     }
 
+    @Override
+    public Result updateInfo(Employee employee) {
+        this.employeeDao.save(employee);
+        return new SuccessResult("güncellendi");
+    }
+
 }
 

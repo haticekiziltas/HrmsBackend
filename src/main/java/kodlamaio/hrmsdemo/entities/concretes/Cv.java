@@ -48,19 +48,19 @@ public class Cv {
     private String photo;
 
 
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cv" , cascade = CascadeType.ALL )
     private List<Talent> talents;
 
 
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL )
     private List<Education> educations;
 
 
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cv",  cascade = CascadeType.ALL )
     private List<JobExperience> jobExperiences;
 
 
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cv",  cascade = CascadeType.ALL )
     private List<Language> languages;
 
 

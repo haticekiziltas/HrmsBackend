@@ -50,8 +50,21 @@ public class CvManager implements CvService {
     }
 
     @Override
+    public DataResult updateCv(Cv cv) {
+        this.cvHelperService.setAllCvId(cv.getEducations(), cv.getLanguages(), cv.getTalents(),cv.getJobExperiences(), cv);
+        this.cvDao.save(cv);
+        return  new SuccessDataResult<Cv>(cv,"güncellendi");
+    }
+
+    @Override
+    public Result deleteCv(Cv cv) {
+        cvDao.delete(cv);
+        return new SuccessResult("cv silindi");
+    }
+
+    @Override
     public DataResult<List<Cv>> getAllCandidateId(int id) {
-        return  new SuccessDataResult<List<Cv>>(cvDao.findAllByCandidate_Id(id));
+        return  new SuccessDataResult<List<Cv>>(cvDao.findAllByCandidateId(id));
     }
 
     @Override

@@ -6,15 +6,17 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="employer_phones")
-public class EmployerPhone {
+@Table(name="user_phones")
+public class UserPhone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "id")
     private int id;
 
     @ManyToOne()
-    @JoinColumn(name = "employer_id")
-    private Employer employerPhone;
+    @JoinColumn(name = "user_id")
+    private User userPhone;
+
+    @Column (name = "phone_number")
     private String phoneNumber;
 }

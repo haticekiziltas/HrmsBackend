@@ -42,11 +42,17 @@ public class EmployeesController {
 
     @PostMapping("/verifyUser")
     @ApiOperation(value = "Verify Method")
-    public ResponseEntity<?> verifyUser(@Valid @RequestParam("id")int employerId,@RequestParam("verify")boolean
+    public ResponseEntity<?> verifyUser(@Valid @RequestParam("id") int employerId, @RequestParam("verify") boolean
             verify) {
 
-        return ResponseEntity.ok(this.employeeService.verifyEmployer(employerId,verify));
+        return ResponseEntity.ok(this.employeeService.verifyEmployer(employerId, verify));
 
 
+    }
+
+    @PutMapping("/updateInfo")
+    @ApiOperation(value = "Update Info Method")
+    public ResponseEntity<?> updateInfo(@Valid @RequestBody Employee employee){
+        return ResponseEntity.ok(this.employeeService.updateInfo(employee));
     }
 }

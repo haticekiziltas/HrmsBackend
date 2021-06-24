@@ -7,6 +7,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.Cv;
 import kodlamaio.hrmsdemo.entities.dtos.CvDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -45,6 +46,18 @@ public class CvsController {
         return this.cvService.add(cv);
     }
 
+    @DeleteMapping("/deleteCv")
+    public ResponseEntity<Result> deleteCv(@RequestBody Cv cv) {
+        final Result result = cvService.deleteCv(cv);
+
+        return ResponseEntity.ok(result);
+    }
+    @PutMapping("/updateCv")
+    @ApiOperation("Update Cv")
+    public  DataResult<Cv> updateCv(@RequestBody Cv cv){
+
+        return this.cvService.updateCv(cv);
+    }
     @PutMapping("/uploadImage")
     public Result saveImage(@RequestBody MultipartFile file, @RequestParam int cvId) {
         return this.cvService.saveImage(file, cvId);

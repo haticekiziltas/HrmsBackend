@@ -12,6 +12,8 @@ public interface CvService {
 
     DataResult<List<CvDto>> getAll();
     Result add(Cv cv);
+    DataResult<Cv> updateCv(Cv cv);
+    Result deleteCv(Cv cv);
     DataResult<List<Cv>> getAllCandidateId(int id);
     Result saveImage(MultipartFile file, int cvId);
 }
