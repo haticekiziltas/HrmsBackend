@@ -2,7 +2,6 @@ package kodlamaio.hrmsdemo.business.concretes;
 
 import kodlamaio.hrmsdemo.business.abstracts.JobAdvertisementService;
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
-import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrmsdemo.dataAccess.abstracts.JobAdvertisementDao;
 import kodlamaio.hrmsdemo.entities.concretes.JobAdvertisement;
@@ -10,8 +9,9 @@ import kodlamaio.hrmsdemo.entities.dtos.JobAdvertisementDto;
 import kodlamaio.hrmsdemo.entities.dtos.JobAdvertisementRequestDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 
 import java.sql.Date;
 import java.util.List;
@@ -76,6 +76,15 @@ public class JobAdvertisementManager implements JobAdvertisementService {
     public DataResult<List<JobAdvertisementDto>> getAdCustomDate(Date date) {
         List<JobAdvertisement> jobAdvertisements = jobAdvertisementDao.findAllByCreatedAt(date);
         return new SuccessDataResult<List<JobAdvertisementDto>>(jobAdvertisementToDto(jobAdvertisements), "İstenilen Tarihe Göre Sıralandı");
+    }
+
+    @Override
+    public DataResult<List<JobAdvertisementDto>> findAll(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        List<JobAdvertisement> jobAdvertisements = (List<JobAdvertisement>) jobAdvertisementDao.findAll();
+
+        return new SuccessDataResult<List<JobAdvertisementDto>>
+                (jobAdvertisementToDto(jobAdvertisements));
     }
 
     @Override

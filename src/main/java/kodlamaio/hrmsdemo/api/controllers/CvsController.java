@@ -47,8 +47,8 @@ public class CvsController {
     }
 
     @DeleteMapping("/deleteCv")
-    public ResponseEntity<Result> deleteCv(@RequestBody Cv cv) {
-        final Result result = cvService.deleteCv(cv);
+    public ResponseEntity<Result> deleteCv(@RequestParam("id") int id){
+        final Result result = cvService.deleteCv(id);
 
         return ResponseEntity.ok(result);
     }

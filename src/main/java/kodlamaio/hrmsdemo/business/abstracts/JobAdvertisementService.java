@@ -19,6 +19,7 @@ public interface JobAdvertisementService {
     DataResult<List<JobAdvertisementDto>> getEmpId(int id);
     DataResult<List<JobAdvertisementDto>> getAdDate();
     DataResult<List<JobAdvertisementDto>> getAdCustomDate(Date date);
+    DataResult<List<JobAdvertisementDto>> findAll(int pageNo,int pageSize);
     DataResult<JobAdvertisement> updateActive(int id, boolean active);
 
 }
