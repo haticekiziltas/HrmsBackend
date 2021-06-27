@@ -81,7 +81,7 @@ public class JobAdvertisementManager implements JobAdvertisementService {
     @Override
     public DataResult<List<JobAdvertisementDto>> findAll(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        List<JobAdvertisement> jobAdvertisements = (List<JobAdvertisement>) jobAdvertisementDao.findAll();
+        List<JobAdvertisement> jobAdvertisements = (List<JobAdvertisement>) jobAdvertisementDao.findAllByActiveTrue(pageable);
 
         return new SuccessDataResult<List<JobAdvertisementDto>>
                 (jobAdvertisementToDto(jobAdvertisements));

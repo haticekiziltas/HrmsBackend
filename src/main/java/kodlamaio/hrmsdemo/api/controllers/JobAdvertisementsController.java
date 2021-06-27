@@ -16,7 +16,7 @@ import java.sql.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/jobAdvertisment")
+@RequestMapping("/api/jobAdvertisement")
 @CrossOrigin
 public class JobAdvertisementsController {
 
@@ -77,5 +77,8 @@ public class JobAdvertisementsController {
             return this.jobAdvertisementService.getAdCustomDate(date);
 
         }
-
+    @GetMapping("/getAllByPage")
+    DataResult<List<JobAdvertisementDto>> getAll(@RequestParam int pageNo,@RequestParam int pageSize){
+        return this.jobAdvertisementService.findAll(pageNo, pageSize);
+    }
     }

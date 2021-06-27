@@ -1,6 +1,7 @@
 package kodlamaio.hrmsdemo.dataAccess.abstracts;
 
 import kodlamaio.hrmsdemo.entities.concretes.JobAdvertisement;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
@@ -11,6 +12,7 @@ import java.util.List;
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement,Integer> {
 
     List<JobAdvertisement> findAllByActiveTrue();
+    List<JobAdvertisement> findAllByActiveTrue(Pageable pageable);
     List<JobAdvertisement>findAllByActiveFalseOrderByCreatedAtDesc();
     List<JobAdvertisement> findAllByEmployerIdAndActiveTrue(int id);
     List<JobAdvertisement> findAllByActiveTrueOrderByEndDateDesc();

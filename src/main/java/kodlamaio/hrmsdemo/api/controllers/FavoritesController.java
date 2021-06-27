@@ -27,13 +27,19 @@ public class FavoritesController {
     @GetMapping("/getall")
     @ApiOperation("Get All Favroite")
     DataResult<List<Favorite>> getAll() {
+
         return this.favoriteService.getAll();
     }
+
+
     @PostMapping("/add")
     @ApiOperation("Add Favroite")
     public Result add(@Valid @RequestBody Favorite favorite){
+
         return this.favoriteService.add(favorite);
     }
+
+
     @GetMapping("/getAllByFavoriteById")
     @ApiOperation("Get All Favroite By Id")
     DataResult<List<Favorite>> getAllByFavoriteById(@RequestParam("id") int id) {
