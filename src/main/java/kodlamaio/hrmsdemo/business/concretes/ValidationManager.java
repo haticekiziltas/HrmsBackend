@@ -20,9 +20,9 @@ public class ValidationManager implements ValidationService {
 
 
     @Autowired
-    public ValidationManager(EmployerDao employerDao, IdentityCheckService<Candidate> identityCheckService) {
+    public ValidationManager(EmployerDao employerDao) {
         this.employerDao = employerDao;
-        this.identityCheckService = identityCheckService;
+
     }
 
     @Autowired
